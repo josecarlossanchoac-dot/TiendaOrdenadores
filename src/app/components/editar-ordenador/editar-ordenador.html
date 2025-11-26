@@ -1,0 +1,51 @@
+<div *ngIf="!cargando">
+
+  <h1>Editar ordenador</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onGuardar()">
+
+    <label>Marca:</label>
+    <input formControlName="marca">
+    <div *ngIf="form.get('marca')?.invalid && form.get('marca')?.touched">
+      Requerido
+    </div>
+
+    <label>Modelo:</label>
+    <input formControlName="modelo">
+    <div *ngIf="form.get('modelo')?.invalid && form.get('modelo')?.touched">
+      Requerido
+    </div>
+
+    <label>Procesador:</label>
+    <input formControlName="procesador">
+    <div *ngIf="form.get('procesador')?.invalid && form.get('procesador')?.touched">
+      Requerido
+    </div>
+
+    <label>RAM:</label>
+    <input formControlName="ram">
+    <div *ngIf="form.get('ram')?.invalid && form.get('ram')?.touched">
+      Requerido
+    </div>
+
+    <label>Precio:</label>
+    <input type="number" step="0.01" formControlName="precio">
+    <div *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched">
+      Requerido y debe ser un número
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">
+      Guardar cambios
+    </button>
+
+    <button type="button" (click)="onCancelar()" class="cancelar-btn">
+      Cancelar
+    </button>
+
+  </form>
+
+</div>
+
+<div *ngIf="cargando">
+  Cargando datos...
+</div>

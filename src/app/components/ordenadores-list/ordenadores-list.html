@@ -10,8 +10,19 @@
 
 <div class="cards-container" *ngIf="!cargando">
   <div class="card" *ngFor="let ordenador of ordenadores">
+    <!-- Imagen arriba -->
+    <div class="card-imagen" *ngIf="ordenador.imagen">
+      <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />  
+    </div>
+
+    <!-- Nombre y marca -->
     <h2>{{ordenador.marca}} {{ordenador.modelo}}</h2>
+
+    <!-- Precio -->
     <p>Precio: ${{ordenador.precio}}</p>
+
+    <!-- Link a detalles -->
     <a [routerLink]="['/ordenadores', ordenador.id]">Ver detalles</a>
   </div>
 </div>
+

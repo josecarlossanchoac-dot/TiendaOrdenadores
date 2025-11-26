@@ -39,17 +39,17 @@ button:hover {
   background: #0056b3;
 }
 
-div { /* mensajes de error */
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
+.cancelar-btn {
+  background: #6c757d;
+  margin-left: 0.5rem;
 }
 
-.BotonVolver{
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #007bff;
-  font-size: 1.2rem;
+.cancelar-btn:hover {
+  background: #565e64;
+}
+
+/* mensajes de error */
+div {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
 }

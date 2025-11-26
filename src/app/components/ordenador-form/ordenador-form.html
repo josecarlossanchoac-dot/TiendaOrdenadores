@@ -19,10 +19,24 @@
   <div *ngIf="formulario.get('ram')?.invalid && formulario.get('ram')?.touched">Requerido</div>
 
   <label>Precio:</label>
-  <input formControlName="precio">
+  <input formControlName="precio" type="number" step="0.01">
   <div *ngIf="formulario.get('precio')?.invalid && formulario.get('precio')?.touched">Requerido y debe ser un número</div>
+
+  <label>URL de la imagen:</label>
+  <input formControlName="imagen" type="url" placeholder="https://picsum.photos/id/0/400/300">
+  <div *ngIf="formulario.get('imagen')?.invalid && formulario.get('imagen')?.touched">
+    Debe ser una URL válida de imagen (jpg, jpeg, png, webp, gif)
+  </div>
+  
+  <!-- Vista previa de la imagen -->
+  <div *ngIf="formulario.get('imagen')?.value && formulario.get('imagen')?.valid" class="imagen-preview">
+    <p>Vista previa:</p>
+    <img [src]="formulario.get('imagen')?.value" alt="Vista previa" style="max-width: 200px; height: auto; border: 1px solid #ccc; border-radius: 5px;">
+  </div>
 
   <button type="submit" [disabled]="formulario.invalid">Crear ordenador</button>
 </form>
 
-<a routerLink="/ordenadores">Volver al catálogo</a>
+<div class="BotonVolver">
+  <p routerLink="/ordenadores">Volver al catálogo</p>
+</div>

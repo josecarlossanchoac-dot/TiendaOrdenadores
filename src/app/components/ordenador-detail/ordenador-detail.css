@@ -61,6 +61,20 @@
   text-align: center;
   margin: 40px;
 }
+.botonesAbajo {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.BotonVolver{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .modal button {
   margin: 0.5rem;
@@ -108,4 +122,24 @@
 
 .detail-container button.eliminar:hover {
   opacity: 0.9;
+}
+
+.detail-container h1,
+.detail-container p,
+.modal p,
+.modal h2 {
+  word-wrap: break-word;     /* rompe palabras largas */
+  overflow-wrap: break-word; /* versión moderna */
+  word-break: break-word;    /* seguridad extra */
+}
+
+.detalle-imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.detalle-imagen {
+  text-align: center;
+  margin-bottom: 1rem;
 }

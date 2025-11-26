@@ -7,14 +7,21 @@
     <p><strong>RAM:</strong> {{ordenador.ram}}</p>
     <p><strong>Precio:</strong> ${{ordenador.precio}}</p>
     <p><strong>Creado el:</strong> {{ordenador.createdAt | date}}</p>
+    <div class="detalle-imagen" *ngIf="ordenador.imagen">
+      <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />
+    </div>
 
     <!-- Botones de acción -->
-    <button class="actualizar" (click)="onActualizar()">Actualizar</button>
-    <button class="eliminar" (click)="onMostrarModalEliminar()">Eliminar</button>
-
-    <a routerLink="/ordenadores">Volver al catálogo</a>
-  </div>
-
+    <div class="botonesAbajo">
+      <button class="actualizar" (click)="onActualizar()">Actualizar</button>
+      <button class="eliminar" (click)="onMostrarModalEliminar()">Eliminar</button>
+    </div>
+    <div class="BotonVolver">
+      <a routerLink="/ordenadores">Volver al catálogo</a>
+    </div>
+      
+    
+  </div>  
 
   <!-- Modal -->
   <div *ngIf="modalEliminarVisible" class="modal-backdrop">

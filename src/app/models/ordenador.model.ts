@@ -6,4 +6,6 @@ export interface Ordenador {
   ram: string;
   precio: string;
   createdAt?: string;
+  imagen?: string; // nueva propiedad opcional
+
 }

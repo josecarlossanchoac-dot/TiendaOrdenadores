@@ -13,7 +13,7 @@ import { Ordenador } from '../../models/ordenador.model';
 })
 export class OrdenadorDetailComponent implements OnInit {
 
-  ordenador?: Ordenador;
+  ordenador!: Ordenador;
   cargando: boolean = true;
 
   constructor(
@@ -57,7 +57,7 @@ export class OrdenadorDetailComponent implements OnInit {
   }
 
   onActualizar() {
-    alert('Función de actualizar pendiente'); // Por ahora no hace nada
+    this.router.navigate(['/ordenadores/editar', this.ordenador.id]);
   }
 
   //modal 
@@ -84,5 +84,5 @@ export class OrdenadorDetailComponent implements OnInit {
       }
     });
   }
-
+  
 }
