@@ -1,0 +1,111 @@
+.detail-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.detail-container h1 {
+  margin-top: 0;
+}
+
+.detail-container p {
+  margin: 0.5rem 0;
+}
+
+.detail-container button {
+  margin: 0.5rem 0.3rem;
+  padding: 0.5rem 1rem;
+  background: #28a745; /* verde por defecto */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.detail-container button:hover {
+  opacity: 0.9;
+}
+
+.detail-container a {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.detail-container a:hover {
+  text-decoration: underline;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  margin: 40px;
+}
+
+.modal button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Botón de confirmar eliminación en rojo */
+.modal button.confirmar {
+  background-color: #dc3545; /* rojo */
+  color: white;
+}
+
+.modal button.confirmar:hover {
+  opacity: 0.9;
+}
+
+/* Botón de cancelar en gris */
+.modal button.cancelar {
+  background-color: #6c757d; /* gris */
+  color: white;
+}
+
+.modal button.cancelar:hover {
+  opacity: 0.9;
+}
+
+/* Botón de actualizar */
+.detail-container button.actualizar {
+  background-color: #007bff; /* azul */
+  color: white;
+}
+
+.detail-container button.actualizar:hover {
+  opacity: 0.9;
+}
+
+/* Botón de eliminar fuera del modal */
+.detail-container button.eliminar {
+  background-color: #dc3545; /* rojo */
+  color: white;
+}
+
+.detail-container button.eliminar:hover {
+  opacity: 0.9;
+}

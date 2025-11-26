@@ -1,0 +1,17 @@
+<div class="header-catalogo">
+  <h1>Catálogo de Ordenadores</h1>
+  <a routerLink="/ordenadores/nuevo">
+    <button>Añadir ordenador</button>
+  </a>
+</div>
+
+<div *ngIf="cargando">Cargando ordenadores...</div>
+
+
+<div class="cards-container" *ngIf="!cargando">
+  <div class="card" *ngFor="let ordenador of ordenadores">
+    <h2>{{ordenador.marca}} {{ordenador.modelo}}</h2>
+    <p>Precio: ${{ordenador.precio}}</p>
+    <a [routerLink]="['/ordenadores', ordenador.id]">Ver detalles</a>
+  </div>
+</div>

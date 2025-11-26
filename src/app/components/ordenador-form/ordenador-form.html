@@ -1,0 +1,28 @@
+<h1>Añadir nuevo ordenador</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <label>Marca:</label>
+  <input formControlName="marca">
+  <div *ngIf="formulario.get('marca')?.invalid && formulario.get('marca')?.touched">Requerido</div>
+
+  <label>Modelo:</label>
+  <input formControlName="modelo">
+  <div *ngIf="formulario.get('modelo')?.invalid && formulario.get('modelo')?.touched">Requerido</div>
+
+  <label>Procesador:</label>
+  <input formControlName="procesador">
+  <div *ngIf="formulario.get('procesador')?.invalid && formulario.get('procesador')?.touched">Requerido</div>
+
+  <label>RAM:</label>
+  <input formControlName="ram">
+  <div *ngIf="formulario.get('ram')?.invalid && formulario.get('ram')?.touched">Requerido</div>
+
+  <label>Precio:</label>
+  <input formControlName="precio">
+  <div *ngIf="formulario.get('precio')?.invalid && formulario.get('precio')?.touched">Requerido y debe ser un número</div>
+
+  <button type="submit" [disabled]="formulario.invalid">Crear ordenador</button>
+</form>
+
+<a routerLink="/ordenadores">Volver al catálogo</a>
