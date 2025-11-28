@@ -2,14 +2,14 @@
   <div *ngIf="cargando">Cargando detalles...</div>
 
   <div *ngIf="!cargando && ordenador" class="detail-container">
-    <h1>{{ordenador.marca}} {{ordenador.modelo}}</h1>
+    <h1 class="tipo">{{ordenador.marca}} {{ordenador.modelo}}</h1>
     <p><strong>Procesador:</strong> {{ordenador.procesador}}</p>
     <p><strong>RAM:</strong> {{ordenador.ram}}</p>
     <p><strong>Precio:</strong> ${{ordenador.precio}}</p>
     <p><strong>Creado el:</strong> {{ordenador.createdAt | date}}</p>
     <div class="detalle-imagen" *ngIf="ordenador.imagen">
-      <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />
-    </div>
+    <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />
+  </div>
 
     <!-- Botones de acción -->
     <div class="botonesAbajo">

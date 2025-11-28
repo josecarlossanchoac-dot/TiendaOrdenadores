@@ -12,7 +12,6 @@ export class OrdenadoresService {
 
   constructor(private http: HttpClient) { }
 
-  // Obtener todos los ordenadores
   getOrdenadores(): Observable<Ordenador[]> {
     return this.http.get<Ordenador[]>(this.baseUrl);
   }

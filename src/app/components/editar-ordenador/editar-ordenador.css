@@ -47,6 +47,13 @@ button:hover {
 .cancelar-btn:hover {
   background: #565e64;
 }
+.titulo{
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 80px;
+}
 
 /* mensajes de error */
 div {

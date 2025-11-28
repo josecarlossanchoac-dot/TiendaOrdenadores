@@ -1,28 +1,64 @@
-<div class="header-catalogo">
-  <h1>Catálogo de Ordenadores</h1>
-  <a routerLink="/ordenadores/nuevo">
-    <button>Añadir ordenador</button>
-  </a>
-</div>
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <h1>
+      <span class="material-icons">computer</span>
+      Catálogo de Ordenadores
+    </h1>
+  </header>
 
-<div *ngIf="cargando">Cargando ordenadores...</div>
-
-
-<div class="cards-container" *ngIf="!cargando">
-  <div class="card" *ngFor="let ordenador of ordenadores">
-    <!-- Imagen arriba -->
-    <div class="card-imagen" *ngIf="ordenador.imagen">
-      <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />  
+  <!-- Contenido principal -->
+  <div class="contenido">
+    <div class="header-catalogo">
+      <a routerLink="/ordenadores/nuevo">
+        <button class="btn-agregar">
+          <span class="material-icons">add_circle</span>
+          Añadir ordenador
+        </button>
+      </a>
     </div>
 
-    <!-- Nombre y marca -->
-    <h2>{{ordenador.marca}} {{ordenador.modelo}}</h2>
+    <div *ngIf="cargando" class="cargando">Cargando ordenadores...</div>
 
-    <!-- Precio -->
-    <p>Precio: ${{ordenador.precio}}</p>
+    <div class="cards-container" *ngIf="!cargando">
+      <div class="card" *ngFor="let ordenador of ordenadoresPaginados">
+        <div class="card-imagen" *ngIf="ordenador.imagen">
+          <img [src]="ordenador.imagen" [alt]="ordenador.marca + ' ' + ordenador.modelo" />  
+        </div>
 
-    <!-- Link a detalles -->
-    <a [routerLink]="['/ordenadores', ordenador.id]">Ver detalles</a>
-  </div>
+        <h2>{{ordenador.marca}} {{ordenador.modelo}}</h2>
+        <p class="precio">Precio: ${{ordenador.precio}}</p>
+
+        <a [routerLink]="['/ordenadores', ordenador.id]" class="ver-detalles">
+          Ver detalles
+          <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="paginacion" *ngIf="!cargando && totalPaginas > 1">
+      <button 
+        class="btn-pagina" 
+        (click)="cambiarPagina(paginaActual - 1)" 
+        [disabled]="paginaActual === 1">
+        &lt;
+      </button>
+
+      <span class="pagina-actual">{{paginaActual}}</span>
+
+      <button 
+        class="btn-pagina" 
+        (click)="cambiarPagina(paginaActual + 1)" 
+        [disabled]="paginaActual === totalPaginas">
+        &gt;
+      </button>
+    </div>
 </div>
-
+<!-- Footer -->
+  <footer class="footer">
+    <p>
+      <span class="material-icons">person</span>
+      José Carlos Sancho Acosta | CSI-2 DAW
+    </p>
+  </footer>

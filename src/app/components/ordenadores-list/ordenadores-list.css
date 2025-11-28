@@ -1,92 +1,91 @@
-.container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center; /* centra las cards */
-}
-
-.card {
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 6px;
-  width: 200px; /* ancho por defecto en escritorio */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-.card h2 {
+* {
   margin: 0;
-  font-size: 1.1rem;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card p {
-  margin: 0.3rem 0;
+/* Contenedor general */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-.card a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  text-decoration: none;
-  color: #007bff;
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 80px; /* Altura aproximada del footer */
 }
 
-.card a:hover {
-  text-decoration: underline;
+/* HEADER */
+.header {
+  color: black;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-button {
-  margin-top: 0.5rem;
-  padding: 0.4rem 0.8rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.header h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2rem;
 }
 
-button:hover {
-  background: #0056b3;
+/* CONTENIDO */
+.contenido {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
 }
-
 
 .header-catalogo {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
-  margin-left: 20px;
+  margin-bottom: 2rem;
 }
 
-.header-catalogo button {
-  background-color: #28a745;
-  color: white;
+.btn-agregar {
+  background: lightskyblue;
+  color: black;
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  margin-right: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-.header-catalogo button:hover {
+.btn-agregar:hover {
   opacity: 0.9;
 }
 
+.cargando {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
 
+/* CARDS */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -103,25 +102,139 @@ button:hover {
   transform: translateY(-3px);
 }
 
-.card-imagen img {
+.card-imagen {
   width: 100%;
-  height: auto;
+  height: 150px;
+  overflow: hidden;
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
 
-/* --- MEDIA QUERIES PARA RESPONSIVE --- */
+.card-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* Tablets y pantallas medianas */
+.card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.precio {
+  font-size: 1.1rem;
+  color: #667eea;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.ver-detalles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.ver-detalles:hover {
+  text-decoration: underline;
+}
+
+/* PAGINACIÓN */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-pagina {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  transition: all 0.2s;
+}
+
+.btn-pagina:hover:not(:disabled) {
+  background: lightskyblue;
+  color: black;
+  border-color: lightskyblue;
+}
+
+.btn-pagina:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagina-actual {
+  background: lightskyblue;
+  color: black;
+  border: 1px solid lightskyblue;
+  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  font-weight: bold;
+  min-width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOOTER */
+.footer {
+  background: #333;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Material Icons */
+.material-icons {
+  vertical-align: middle;
+  font-size: 1.2em;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .card {
-    width: 45%; /* 2 cards por fila */
+    width: 45%;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
   }
 }
 
-/* Móviles */
 @media (max-width: 480px) {
   .card {
-    width: 90%; /* 1 card por fila */
+    width: 90%;
+  }
+  
+  .header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .header-catalogo {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
